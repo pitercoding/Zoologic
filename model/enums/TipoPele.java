@@ -5,7 +5,8 @@ public enum TipoPele {
     PENAS,
     ESCAMAS,
     PELE_LISA,
-    CASCO
+    CASCO,
+    UMIDA
 }
 
 // Define o tipo de cobertura corporal do animal.
