@@ -15,11 +15,10 @@ public class Mamifero extends Chordata {
     private boolean amamentaFilhotes;
 
     // Construtor da classe Mamifero
-    public Mamifero(String nomePopular, String nomeCientifico, String habitat, String alimentacao,
-                    TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-                    String somEmitido, int gestacaoEmDias, boolean possuiPelos, boolean amamentaFilhotes) {
-        super(nomePopular, nomeCientifico, ClasseAnimal.MAMIFERO, habitat, alimentacao, tipoPele, tipoRespiracao,
-                modoLocomocao, somEmitido);
+    public Mamifero(String nomePopular, String nomeCientifico, String habitat, String alimentacao,TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido, int gestacaoEmDias, boolean possuiPelos, boolean amamentaFilhotes) {
+        
+        super(nomePopular, nomeCientifico, ClasseAnimal.MAMIFERO, habitat, alimentacao, tipoPele, tipoRespiracao, modoLocomocao, somEmitido);
+
         this.gestacaoEmDias = gestacaoEmDias;
         this.possuiPelos = possuiPelos;
         this.amamentaFilhotes = amamentaFilhotes;
