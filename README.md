@@ -45,7 +45,7 @@ zoologic/
 - 🧪 Listagem de animais venenosos
 - 🔠 Busca por nome popular
 
-# 🚧 Em desenvolvimento
+### 🚧 Em desenvolvimento
 Algumas funcionalidades estão previstas para versões futuras:
 
 - 🔁 Simulação de interações alimentares ("quem come quem")
