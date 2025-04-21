@@ -4,6 +4,7 @@ package model;
 
 import model.enums.ClasseAnimal;
 import model.enums.ModoLocomocao;
+import model.enums.TipoAlimentacao;
 import model.enums.TipoPele;
 import model.enums.TipoRespiracao;
 
@@ -14,7 +15,7 @@ public class Anfibio extends Chordata {
     private boolean faseAquaticaInicial;
 
     // Construtor
-    public Anfibio(String nomePopular, String nomeCientifico, String habitat, String alimentacao, TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido, boolean passaPorMetamorfose, boolean faseAquaticaInicial) {
+    public Anfibio(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao, TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido, boolean passaPorMetamorfose, boolean faseAquaticaInicial) {
 
         super(nomePopular, nomeCientifico, ClasseAnimal.ANFIBIO, habitat, alimentacao, tipoPele, tipoRespiracao, modoLocomocao, somEmitido);
 

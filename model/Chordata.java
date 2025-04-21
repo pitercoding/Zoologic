@@ -2,6 +2,7 @@ package model;
 
 import model.enums.ClasseAnimal;
 import model.enums.ModoLocomocao;
+import model.enums.TipoAlimentacao;
 import model.enums.TipoPele;
 import model.enums.TipoRespiracao;
 
@@ -12,7 +13,7 @@ public abstract class Chordata {
     protected String nomeCientifico;
     protected ClasseAnimal classeAnimal;
     protected String habitat;
-    protected String alimentacao;
+    protected TipoAlimentacao alimentacao;
     protected TipoPele tipoPele;
     protected TipoRespiracao tipoRespiracao;
     protected ModoLocomocao modoLocomocao;
@@ -20,7 +21,7 @@ public abstract class Chordata {
 
     // Construtor
     public Chordata(String nomePopular, String nomeCientifico, ClasseAnimal classeAnimal,
-                    String habitat, String alimentacao, TipoPele tipoPele,
+                    String habitat, TipoAlimentacao alimentacao, TipoPele tipoPele,
                     TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido) {
         this.nomePopular = nomePopular;
         this.nomeCientifico = nomeCientifico;
@@ -76,7 +77,7 @@ public abstract class Chordata {
             return habitat;
         }
     
-        public String getAlimentacao() {
+        public TipoAlimentacao getAlimentacao() {
             return alimentacao;
         }
     
@@ -113,7 +114,7 @@ public abstract class Chordata {
             this.habitat = habitat;
         }
     
-        public void setAlimentacao(String alimentacao) {
+        public void setAlimentacao(TipoAlimentacao alimentacao) {
             this.alimentacao = alimentacao;
         }
     

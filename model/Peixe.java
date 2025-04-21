@@ -4,6 +4,7 @@ package model;
 
 import model.enums.ClasseAnimal;
 import model.enums.ModoLocomocao;
+import model.enums.TipoAlimentacao;
 import model.enums.TipoPele;
 import model.enums.TipoRespiracao;
 
@@ -14,7 +15,7 @@ public class Peixe extends Chordata {
     private boolean possuiBarbatanas;
 
     // Construtor
-    public Peixe(String nomePopular, String nomeCientifico, String habitat, String alimentacao,
+    public Peixe(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
                  TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
                  String somEmitido, boolean aguaSalgada, boolean possuiBarbatanas) {
 

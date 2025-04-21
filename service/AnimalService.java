@@ -4,6 +4,7 @@ import model.Chordata;
 import model.enums.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AnimalService {
 
@@ -49,7 +50,7 @@ public class AnimalService {
         }
     }
 
-        public void listarPorModoLocomocao(ModoLocomocao modo) {
+    public void listarPorModoLocomocao(ModoLocomocao modo) {
         for (Chordata animal : animais) {
             if (animal.getModoLocomocao() == modo) {
                 animal.exibirInfo();
@@ -64,5 +65,38 @@ public class AnimalService {
             }
         }
     }
+
+    public List<Chordata> filtrarPorCategoriaHabitat(List<Chordata> animais, CategoriaHabitat categoria) {
+    return animais.stream()
+        .filter(animal -> {
+            String habitat = animal.getHabitat().toLowerCase();
+
+            switch (categoria) {
+                case AQUATICO:
+                    return habitat.contains("oceano") || habitat.contains("água") ||
+                           habitat.contains("lago") || habitat.contains("rio") ||
+                           habitat.contains("recife") || habitat.contains("polar");
+                case FLORESTAL:
+                    return habitat.contains("floresta") || habitat.contains("árvore") ||
+                           habitat.contains("mata") || habitat.contains("cerrado");
+                case TERRESTRE:
+                    return habitat.contains("terra") || habitat.contains("savana") ||
+                           habitat.contains("deserto") || habitat.contains("montanha") ||
+                           habitat.contains("campo") || habitat.contains("estepe");
+                case URBANO:
+                    return habitat.contains("urbano");
+                default:
+                    return false;
+            }
+        })
+        .collect(Collectors.toList());
+    }
+
+    public List<Chordata> filtrarPorAlimentacao(TipoAlimentacao tipo) {
+        return animais.stream()
+            .filter(a -> a.getAlimentacao() == tipo)
+            .collect(Collectors.toList());
+    }
+    
 }
 
