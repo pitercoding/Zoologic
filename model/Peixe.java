@@ -51,5 +51,11 @@ public class Peixe extends Chordata {
         System.out.println("Possui barbatanas?  : " + (possuiBarbatanas ? "Sim" : "Não"));
         System.out.println("=================================\n");
     }
+
+    @Override
+    public String toString() {
+    return "Peixe: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+}
+
 }
 

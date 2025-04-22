@@ -51,5 +51,11 @@ public class Ave extends Chordata {
         System.out.println("Tipo de bico        : " + tipoDeBico);
         System.out.println("=================================\n");
     }
+
+    @Override
+public String toString() {
+    return "Ave: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+}
+
 }
 

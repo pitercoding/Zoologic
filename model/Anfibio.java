@@ -48,4 +48,9 @@ public class Anfibio extends Chordata {
         System.out.println("Fase aquática inicial? : " + (faseAquaticaInicial ? "Sim" : "Não"));
         System.out.println("=================================\n");
     }
+
+    @Override
+    public String toString() {
+    return "Anfíbio: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+}
 }

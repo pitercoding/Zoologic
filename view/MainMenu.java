@@ -23,9 +23,13 @@ public class MainMenu {
             System.out.println("\n===== MENU PRINCIPAL ZOOLOGIC =====");
             System.out.println("1. Listar todos os animais");
             System.out.println("2. Ver detalhes de um animal específico");
-            System.out.println("3. Filtrar animais por classe (Mamífero, Ave, Anfibio, Peixe ou Reptil)");
-            System.out.println("4. Filtrar animais por tipo de alimentação");
-            System.out.println("5. Filtrar animais por habitat");
+            System.out.println("3. Filtro: Classe");
+            System.out.println("4. Filtro: Alimentação");
+            System.out.println("5. Filtro: Habitat");
+            System.out.println("6. Filtro: Locomoção");
+            System.out.println("7. Filtro: Pele");
+            System.out.println("8. Filtro: Respiração");
+
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -33,11 +37,14 @@ public class MainMenu {
             scanner.nextLine(); // limpar o buffer
 
             switch (opcao) {
-                case 1 -> listarTodos();
-                case 2 -> verDetalhes(); 
+                case 1 -> animalService.listarTodosAnimais();
+                case 2 -> animalService.verDetalhes(scanner); 
                 case 3 -> filtrarPorClasse();
                 case 4 -> filtrarPorAlimentacao();
                 case 5 -> filtrarPorCategoriaHabitat();
+                case 6 -> filtrarPorLocomocaoMenu(scanner, animalService);
+                case 7 -> animalService.filtrarPorTipoPele(scanner);
+                case 8 -> animalService.filtrarPorTipoRespiracao(scanner);
                 case 0 -> System.out.println("Encerrando o programa...");
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
@@ -45,16 +52,7 @@ public class MainMenu {
         } while (opcao != 0);
     }
 
-    //#1
-    private void listarTodos() {
-        System.out.println("\n-- Lista de todos os animais --");
-        List<Chordata> animais = animalService.getTodosAnimais();
-        for (int i = 0; i < animais.size(); i++) {
-            System.out.println(i + " - " + animais.get(i).getNomePopular());
-        }
-    }
-
-    //#2
+    //#3
     private void filtrarPorClasse() {
         System.out.println("\nDigite a classe:");
         System.out.println("1 - Mamífero");
@@ -91,7 +89,7 @@ public class MainMenu {
         }
     }
     
-    //#3
+    //#4
     private void filtrarPorAlimentacao() {
         System.out.println("\nSelecione o tipo de alimentação:");
         for (int i = 0; i < TipoAlimentacao.values().length; i++) {
@@ -116,20 +114,6 @@ public class MainMenu {
         }
     }    
     
-    //#4
-    private void verDetalhes() {
-        System.out.print("Digite o índice do animal (veja na listagem): ");
-        int index = scanner.nextInt();
-        scanner.nextLine(); // limpar buffer
-
-        Chordata animal = animalService.getAnimalPorIndice(index);
-        if (animal != null) {
-            animal.exibirInfo();
-        } else {
-            System.out.println("Índice inválido.");
-        }
-    }
-
     //#5
     private void filtrarPorCategoriaHabitat(){
         System.out.println("\nSelecione a categoria de habitat:");
@@ -160,6 +144,30 @@ public class MainMenu {
         }
     }
 
-
+    //#6
+    private static void filtrarPorLocomocaoMenu(Scanner scanner, AnimalService service) {
+        System.out.println("Escolha o modo de locomoção:");
+        for (ModoLocomocao modo : ModoLocomocao.values()) {
+            System.out.println(modo.ordinal() + " - " + modo);
+        }
+        System.out.print("Escolha uma opção: ");
+        int escolha = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+    
+        if (escolha >= 0 && escolha < ModoLocomocao.values().length) {
+            ModoLocomocao modoSelecionado = ModoLocomocao.values()[escolha];
+            List<Chordata> resultado = service.filtrarPorLocomocao(modoSelecionado);
+    
+            if (resultado.isEmpty()) {
+                System.out.println("Nenhum animal encontrado com esse modo de locomoção.");
+            } else {
+                System.out.println("Animais com locomoção " + modoSelecionado + ":");
+                resultado.forEach(System.out::println);
+            }
+        } else {
+            System.out.println("Opção inválida.");
+        }
+    }
+    
 }
 

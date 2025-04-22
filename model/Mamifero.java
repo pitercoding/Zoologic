@@ -60,4 +60,9 @@ public class Mamifero extends Chordata {
         System.out.println("=================================\n");
     }
 
+    @Override
+    public String toString() {
+    return "Mamífero: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+}
+
 }

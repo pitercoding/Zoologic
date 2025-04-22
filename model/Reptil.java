@@ -51,4 +51,10 @@ public class Reptil extends Chordata {
         System.out.println("Tipo de locomoção detalhado: " + tipoLocomocaoDetalhado);
         System.out.println("=================================\n");
     }
+
+    @Override
+    public String toString() {
+    return "Réptil: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+}
+
 }
