@@ -2,11 +2,7 @@
 
 package model;
 
-import model.enums.ClasseAnimal;
-import model.enums.ModoLocomocao;
-import model.enums.TipoAlimentacao;
-import model.enums.TipoPele;
-import model.enums.TipoRespiracao;
+import model.enums.*;
 
 public class Ave extends Chordata {
 
@@ -17,10 +13,10 @@ public class Ave extends Chordata {
     // Construtor
     public Ave(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
                TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-               String somEmitido, boolean voa, String tipoDeBico) {
+               String somEmitido, TipoSom tipoSom, boolean voa, String tipoDeBico) {
 
         super(nomePopular, nomeCientifico, ClasseAnimal.AVE, habitat, alimentacao,
-              tipoPele, tipoRespiracao, modoLocomocao, somEmitido);
+              tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
 
         this.voa = voa;
         this.tipoDeBico = tipoDeBico;

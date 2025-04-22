@@ -29,6 +29,7 @@ public class MainMenu {
             System.out.println("6. Filtro: Locomoção");
             System.out.println("7. Filtro: Pele");
             System.out.println("8. Filtro: Respiração");
+            System.out.println("9. Filtro: Som");            
 
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
@@ -45,6 +46,7 @@ public class MainMenu {
                 case 6 -> filtrarPorLocomocaoMenu(scanner, animalService);
                 case 7 -> animalService.filtrarPorTipoPele(scanner);
                 case 8 -> animalService.filtrarPorTipoRespiracao(scanner);
+                case 9 -> animalService.filtrarPorTipoSom(scanner);
                 case 0 -> System.out.println("Encerrando o programa...");
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }

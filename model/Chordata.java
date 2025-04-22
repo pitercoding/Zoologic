@@ -1,10 +1,6 @@
 package model;
 
-import model.enums.ClasseAnimal;
-import model.enums.ModoLocomocao;
-import model.enums.TipoAlimentacao;
-import model.enums.TipoPele;
-import model.enums.TipoRespiracao;
+import model.enums.*;
 
 public abstract class Chordata {
 
@@ -18,11 +14,12 @@ public abstract class Chordata {
     protected TipoRespiracao tipoRespiracao;
     protected ModoLocomocao modoLocomocao;
     protected String somEmitido;
+    protected TipoSom tipoSom;
 
     // Construtor
     public Chordata(String nomePopular, String nomeCientifico, ClasseAnimal classeAnimal,
                     String habitat, TipoAlimentacao alimentacao, TipoPele tipoPele,
-                    TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido) {
+                    TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido, TipoSom tipoSom) {
         this.nomePopular = nomePopular;
         this.nomeCientifico = nomeCientifico;
         this.classeAnimal = classeAnimal;
@@ -32,6 +29,7 @@ public abstract class Chordata {
         this.tipoRespiracao = tipoRespiracao;
         this.modoLocomocao = modoLocomocao;
         this.somEmitido = somEmitido;
+        this.tipoSom = tipoSom;
     }
 
     // Métodos comuns
@@ -133,5 +131,12 @@ public abstract class Chordata {
         public void setSomEmitido(String somEmitido) {
             this.somEmitido = somEmitido;
         }
+        
+        public TipoSom getTipoSom() {
+            return tipoSom;
+        }
     
+        public void setTipoSom(TipoSom tipoSom) {
+            this.tipoSom = tipoSom;
+        }
 }

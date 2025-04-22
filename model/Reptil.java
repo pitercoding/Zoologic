@@ -2,11 +2,7 @@
 
 package model;
 
-import model.enums.ClasseAnimal;
-import model.enums.ModoLocomocao;
-import model.enums.TipoAlimentacao;
-import model.enums.TipoPele;
-import model.enums.TipoRespiracao;
+import model.enums.*;
 
 public class Reptil extends Chordata {
 
@@ -17,10 +13,9 @@ public class Reptil extends Chordata {
     // Construtor
     public Reptil(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
                   TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-                  String somEmitido, boolean venenoso, String tipoLocomocaoDetalhado) {
+                  String somEmitido, TipoSom tipoSom, boolean venenoso, String tipoLocomocaoDetalhado) {
 
-        super(nomePopular, nomeCientifico, ClasseAnimal.REPTIL, habitat, alimentacao,
-              tipoPele, tipoRespiracao, modoLocomocao, somEmitido);
+        super(nomePopular, nomeCientifico, ClasseAnimal.REPTIL, habitat, alimentacao, tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
 
         this.venenoso = venenoso;
         this.tipoLocomocaoDetalhado = tipoLocomocaoDetalhado;

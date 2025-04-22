@@ -236,5 +236,37 @@ public class AnimalService {
             tipo.name().toLowerCase().replace("_", " ").substring(1);
     }
     
+    //#9
+    public void filtrarPorTipoSom(Scanner scanner) {
+        System.out.println("\nEscolha o tipo de som:");
+    
+        TipoSom[] tipos = TipoSom.values();
+        for (int i = 0; i < tipos.length; i++) {
+            System.out.println((i + 1) + " - " + tipos[i].getDescricao());
+        }
+    
+        System.out.print("Digite a opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpa o buffer
+    
+        if (opcao < 1 || opcao > tipos.length) {
+            System.out.println("Opção inválida.");
+            return;
+        }
+    
+        TipoSom selecionado = tipos[opcao - 1];
+    
+        List<Chordata> resultado = animais.stream()
+            .filter(a -> a.getTipoSom() == selecionado)
+            .toList();
+    
+        if (resultado.isEmpty()) {
+            System.out.println("Nenhum animal encontrado com esse tipo de som.");
+        } else {
+            System.out.println("\nAnimais com " + selecionado.getDescricao() + ":");
+            resultado.forEach(a -> System.out.println("- " + a.getNomePopular() + " (Som: " + a.getSomEmitido() + ")"));
+        }
+    }
+    
 }
 

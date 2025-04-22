@@ -2,11 +2,7 @@
 
 package model;
 
-import model.enums.ClasseAnimal;
-import model.enums.ModoLocomocao;
-import model.enums.TipoAlimentacao;
-import model.enums.TipoPele;
-import model.enums.TipoRespiracao;
+import model.enums.*;
 
 public class Peixe extends Chordata {
 
@@ -17,10 +13,10 @@ public class Peixe extends Chordata {
     // Construtor
     public Peixe(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
                  TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-                 String somEmitido, boolean aguaSalgada, boolean possuiBarbatanas) {
+                 String somEmitido, TipoSom tipoSom, boolean aguaSalgada, boolean possuiBarbatanas) {
 
         super(nomePopular, nomeCientifico, ClasseAnimal.PEIXE, habitat, alimentacao,
-              tipoPele, tipoRespiracao, modoLocomocao, somEmitido);
+              tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
 
         this.aguaSalgada = aguaSalgada;
         this.possuiBarbatanas = possuiBarbatanas;
