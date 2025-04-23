@@ -1,14 +1,8 @@
 package service;
 
-import model.Anfibio;
-import model.Ave;
 import model.Chordata;
-import model.Mamifero;
-import model.Peixe;
-import model.Reptil;
 import model.enums.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -73,8 +67,8 @@ public class AnimalService {
         int index = scanner.nextInt();
         scanner.nextLine(); // limpar buffer
     
-        if (index >= 0 && index < animais.size()) {
-            Chordata animal = animais.get(index);
+        if (index >= 1 && index < animais.size()) {
+            Chordata animal = animais.get(index -1);
             animal.exibirInfo();
         } else {
             System.out.println("Índice inválido.");
