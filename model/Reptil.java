@@ -12,10 +12,11 @@ public class Reptil extends Chordata {
 
     // Construtor
     public Reptil(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
-                  TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-                  String somEmitido, TipoSom tipoSom, boolean venenoso, String tipoLocomocaoDetalhado) {
+            TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
+            String somEmitido, TipoSom tipoSom, boolean venenoso, String tipoLocomocaoDetalhado) {
 
-        super(nomePopular, nomeCientifico, ClasseAnimal.REPTIL, habitat, alimentacao, tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
+        super(nomePopular, nomeCientifico, ClasseAnimal.REPTIL, habitat, alimentacao, tipoPele, tipoRespiracao,
+                modoLocomocao, somEmitido, tipoSom);
 
         this.venenoso = venenoso;
         this.tipoLocomocaoDetalhado = tipoLocomocaoDetalhado;
@@ -49,7 +50,7 @@ public class Reptil extends Chordata {
 
     @Override
     public String toString() {
-    return "Réptil: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
-}
+        return "Réptil: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+    }
 
 }

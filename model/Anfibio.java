@@ -11,9 +11,12 @@ public class Anfibio extends Chordata {
     private boolean faseAquaticaInicial;
 
     // Construtor
-    public Anfibio(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao, TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido, TipoSom tipoSom, boolean passaPorMetamorfose, boolean faseAquaticaInicial) {
+    public Anfibio(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
+            TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao, String somEmitido,
+            TipoSom tipoSom, boolean passaPorMetamorfose, boolean faseAquaticaInicial) {
 
-        super(nomePopular, nomeCientifico, ClasseAnimal.ANFIBIO, habitat, alimentacao, tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
+        super(nomePopular, nomeCientifico, ClasseAnimal.ANFIBIO, habitat, alimentacao, tipoPele, tipoRespiracao,
+                modoLocomocao, somEmitido, tipoSom);
 
         this.passaPorMetamorfose = passaPorMetamorfose;
         this.faseAquaticaInicial = faseAquaticaInicial;
@@ -47,6 +50,6 @@ public class Anfibio extends Chordata {
 
     @Override
     public String toString() {
-    return "Anfíbio: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
-}
+        return "Anfíbio: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+    }
 }

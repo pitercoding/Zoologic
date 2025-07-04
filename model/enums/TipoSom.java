@@ -18,4 +18,3 @@ public enum TipoSom {
         return descricao;
     }
 }
-

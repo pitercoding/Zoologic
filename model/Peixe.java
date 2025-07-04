@@ -12,11 +12,11 @@ public class Peixe extends Chordata {
 
     // Construtor
     public Peixe(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
-                 TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-                 String somEmitido, TipoSom tipoSom, boolean aguaSalgada, boolean possuiBarbatanas) {
+            TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
+            String somEmitido, TipoSom tipoSom, boolean aguaSalgada, boolean possuiBarbatanas) {
 
         super(nomePopular, nomeCientifico, ClasseAnimal.PEIXE, habitat, alimentacao,
-              tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
+                tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
 
         this.aguaSalgada = aguaSalgada;
         this.possuiBarbatanas = possuiBarbatanas;
@@ -50,8 +50,7 @@ public class Peixe extends Chordata {
 
     @Override
     public String toString() {
-    return "Peixe: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
-}
+        return "Peixe: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+    }
 
 }
-

@@ -44,7 +44,7 @@ public class AnimalService {
 
     // Métodos extras úteis
 
-    //#1
+    // #1
     public void listarTodosAnimais() {
         System.out.println("\n-- Lista de todos os animais --");
         List<Chordata> animais = getTodosAnimais();
@@ -52,8 +52,8 @@ public class AnimalService {
             System.out.println((i + 1) + " - " + animais.get(i).getNomePopular());
         }
     }
-    
-    //#2
+
+    // #2
     public void buscarPorNome(String nome) {
         for (Chordata animal : animais) {
             if (animal.getNomePopular().toLowerCase().contains(nome.toLowerCase())) {
@@ -66,75 +66,75 @@ public class AnimalService {
         System.out.print("Digite o índice do animal (veja na listagem): ");
         int index = scanner.nextInt();
         scanner.nextLine(); // limpar buffer
-    
+
         if (index >= 1 && index < animais.size()) {
-            Chordata animal = animais.get(index -1);
+            Chordata animal = animais.get(index - 1);
             animal.exibirInfo();
         } else {
             System.out.println("Índice inválido.");
         }
     }
-    
-    //#3
-    
-    //#4
+
+    // #3
+
+    // #4
     public List<Chordata> filtrarPorAlimentacao(TipoAlimentacao tipo) {
         return animais.stream()
-            .filter(a -> a.getAlimentacao() == tipo)
-            .collect(Collectors.toList());
+                .filter(a -> a.getAlimentacao() == tipo)
+                .collect(Collectors.toList());
     }
-    
-    //#5
+
+    // #5
     public List<Chordata> filtrarPorCategoriaHabitat(List<Chordata> animais, CategoriaHabitat categoria) {
         return animais.stream()
-            .filter(animal -> {
-                String habitat = animal.getHabitat().toLowerCase();
-    
-                switch (categoria) {
-                    case AQUATICO:
-                        return habitat.contains("oceano") || habitat.contains("água") ||
-                               habitat.contains("lago") || habitat.contains("rio") ||
-                               habitat.contains("recife") || habitat.contains("polar");
-                    case FLORESTAL:
-                        return habitat.contains("floresta") || habitat.contains("árvore") ||
-                               habitat.contains("mata") || habitat.contains("cerrado");
-                    case TERRESTRE:
-                        return habitat.contains("terra") || habitat.contains("savana") ||
-                               habitat.contains("deserto") || habitat.contains("montanha") ||
-                               habitat.contains("campo") || habitat.contains("estepe");
-                    case URBANO:
-                        return habitat.contains("urbano");
-                    default:
-                        return false;
-                }
-            })
-            .collect(Collectors.toList());
-        }
+                .filter(animal -> {
+                    String habitat = animal.getHabitat().toLowerCase();
 
-    //#6
+                    switch (categoria) {
+                        case AQUATICO:
+                            return habitat.contains("oceano") || habitat.contains("água") ||
+                                    habitat.contains("lago") || habitat.contains("rio") ||
+                                    habitat.contains("recife") || habitat.contains("polar");
+                        case FLORESTAL:
+                            return habitat.contains("floresta") || habitat.contains("árvore") ||
+                                    habitat.contains("mata") || habitat.contains("cerrado");
+                        case TERRESTRE:
+                            return habitat.contains("terra") || habitat.contains("savana") ||
+                                    habitat.contains("deserto") || habitat.contains("montanha") ||
+                                    habitat.contains("campo") || habitat.contains("estepe");
+                        case URBANO:
+                            return habitat.contains("urbano");
+                        default:
+                            return false;
+                    }
+                })
+                .collect(Collectors.toList());
+    }
+
+    // #6
     public void listarPorModoLocomocao(ModoLocomocao modo) {
-            for (Chordata animal : animais) {
-                if (animal.getModoLocomocao() == modo) {
-                    animal.exibirInfo();
-                }
+        for (Chordata animal : animais) {
+            if (animal.getModoLocomocao() == modo) {
+                animal.exibirInfo();
             }
         }
+    }
 
     public List<Chordata> filtrarPorLocomocao(ModoLocomocao modo) {
-            return animais.stream()
-                          .filter(animal -> animal.getModoLocomocao() == modo)
-                          .collect(Collectors.toList());
-        }
+        return animais.stream()
+                .filter(animal -> animal.getModoLocomocao() == modo)
+                .collect(Collectors.toList());
+    }
 
-    //#7
+    // #7
     public void filtrarPorTipoPele(Scanner scanner) {
         TipoPele[] tipos = TipoPele.values();
-    
+
         System.out.println("Escolha o tipo de pele:");
         for (int i = 0; i < tipos.length; i++) {
             System.out.println((i + 1) + ". " + formatarTipoPele(tipos[i]));
         }
-    
+
         System.out.print("Digite o número correspondente: ");
         try {
             int escolha = Integer.parseInt(scanner.nextLine());
@@ -142,24 +142,24 @@ public class AnimalService {
                 System.out.println("Opção inválida.");
                 return;
             }
-    
+
             TipoPele tipoSelecionado = tipos[escolha - 1];
             List<Chordata> filtrados = animais.stream()
-                .filter(animal -> animal.getTipoPele() == tipoSelecionado)
-                .collect(Collectors.toList());
-    
+                    .filter(animal -> animal.getTipoPele() == tipoSelecionado)
+                    .collect(Collectors.toList());
+
             System.out.println("\nAnimais com pele " + formatarTipoPele(tipoSelecionado) + ":");
             if (filtrados.isEmpty()) {
                 System.out.println("Nenhum animal encontrado.");
             } else {
                 filtrados.forEach(System.out::println);
             }
-    
+
         } catch (NumberFormatException e) {
             System.out.println("Entrada inválida. Digite um número.");
         }
     }
-    
+
     private String formatarTipoPele(TipoPele tipo) {
         switch (tipo) {
             case PELOS:
@@ -178,8 +178,8 @@ public class AnimalService {
                 return tipo.name(); // fallback
         }
     }
-    
-    //#8
+
+    // #8
     public void listarPorRespiracao(TipoRespiracao tipo) {
         for (Chordata animal : animais) {
             if (animal.getTipoRespiracao() == tipo) {
@@ -190,70 +190,71 @@ public class AnimalService {
 
     public void filtrarPorTipoRespiracao(Scanner scanner) {
         TipoRespiracao[] tipos = TipoRespiracao.values();
-    
+
         System.out.println("Escolha o tipo de respiração:");
         for (int i = 0; i < tipos.length; i++) {
             System.out.println((i + 1) + ". " + formatarTipoRespiracao(tipos[i]));
         }
-    
+
         System.out.print("Digite o número correspondente: ");
         try {
             int escolha = Integer.parseInt(scanner.nextLine());
-    
+
             if (escolha < 1 || escolha > tipos.length) {
                 System.out.println("Opção inválida.");
                 return;
             }
-    
+
             TipoRespiracao selecionado = tipos[escolha - 1];
-    
+
             List<Chordata> filtrados = animais.stream()
-                .filter(animal -> animal.getTipoRespiracao() == selecionado)
-                .collect(Collectors.toList());
-    
+                    .filter(animal -> animal.getTipoRespiracao() == selecionado)
+                    .collect(Collectors.toList());
+
             System.out.println("\nAnimais com respiração " + formatarTipoRespiracao(selecionado) + ":");
             if (filtrados.isEmpty()) {
                 System.out.println("Nenhum animal encontrado.");
             } else {
                 filtrados.forEach(System.out::println);
             }
-    
+
         } catch (NumberFormatException e) {
             System.out.println("Entrada inválida. Digite um número.");
         }
     }
+
     private String formatarTipoRespiracao(TipoRespiracao tipo) {
         return tipo.name()
-            .toLowerCase()
-            .replace("_", " ")
-            .substring(0, 1).toUpperCase() +
-            tipo.name().toLowerCase().replace("_", " ").substring(1);
+                .toLowerCase()
+                .replace("_", " ")
+                .substring(0, 1).toUpperCase() +
+                tipo.name().toLowerCase().replace("_", " ").substring(1);
     }
-    
-    //#9
+
+    // #9
     public void filtrarPorTipoSom(Scanner scanner) {
         System.out.println("\nEscolha o tipo de som:");
-    
+
         TipoSom[] tipos = TipoSom.values();
         for (int i = 0; i < tipos.length; i++) {
             System.out.println((i + 1) + " - " + tipos[i].getDescricao());
         }
-    
+
         System.out.print("Digite a opção: ");
         int opcao = scanner.nextInt();
         scanner.nextLine(); // Limpa o buffer
-    
+
         if (opcao < 1 || opcao > tipos.length) {
             System.out.println("Opção inválida.");
             return;
         }
-    
+
         TipoSom selecionado = tipos[opcao - 1];
-    
+
         List<Chordata> resultado = animais.stream()
-            .filter(a -> a.getTipoSom() == selecionado)
-            .toList();
-    
+                .filter(a -> a.getTipoSom() == selecionado)
+                .toList();
+
         if (resultado.isEmpty()) {
             System.out.println("Nenhum animal encontrado com esse tipo de som.");
         } else {
@@ -261,6 +262,5 @@ public class AnimalService {
             resultado.forEach(a -> System.out.println("- " + a.getNomePopular() + " (Som: " + a.getSomEmitido() + ")"));
         }
     }
-    
-}
 
+}

@@ -12,11 +12,11 @@ public class Ave extends Chordata {
 
     // Construtor
     public Ave(String nomePopular, String nomeCientifico, String habitat, TipoAlimentacao alimentacao,
-               TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
-               String somEmitido, TipoSom tipoSom, boolean voa, String tipoDeBico) {
+            TipoPele tipoPele, TipoRespiracao tipoRespiracao, ModoLocomocao modoLocomocao,
+            String somEmitido, TipoSom tipoSom, boolean voa, String tipoDeBico) {
 
         super(nomePopular, nomeCientifico, ClasseAnimal.AVE, habitat, alimentacao,
-              tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
+                tipoPele, tipoRespiracao, modoLocomocao, somEmitido, tipoSom);
 
         this.voa = voa;
         this.tipoDeBico = tipoDeBico;
@@ -49,9 +49,8 @@ public class Ave extends Chordata {
     }
 
     @Override
-public String toString() {
-    return "Ave: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
-}
+    public String toString() {
+        return "Ave: " + getNomePopular() + " (" + getNomeCientifico() + "), Habitat: " + getHabitat();
+    }
 
 }
-
